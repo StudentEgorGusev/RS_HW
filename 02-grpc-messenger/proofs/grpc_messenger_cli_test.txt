@@ -1,0 +1,155 @@
+egor@ELap MINGW64 ~/Desktop/hse_dz/materials/homework/02-grpc-messenger (2025)
+$ python ../cli.py test
+latest: Pulling from distsys-course/grpc-messenger
+Digest: sha256:f463de7de0b135fe876f7648d6d3a5a1853952b8939af4393bbe174325d4f220
+Status: Image is up to date for ghcr.io/distsys-course/grpc-messenger:latest
+
+=== BUILD IMAGES ===========================================================================================================
+[+] Building 15.8s (31/35)
+ => [internal] load local bake definitions                                 0.0s
+ => => reading from stdin 1.66kB                                           0.0s
+ => [client2 internal] load build definition from client.dockerfile        0.1s
+ => => transferring dockerfile: 378B                                       0.0s
+ => [tests internal] load build definition from Dockerfile                 0.0s
+ => => transferring dockerfile: 425B                                       0.0s
+ => [server internal] load build definition from server.dockerfile         0.1s
+ => => transferring dockerfile: 378B                                       0.0s
+ => [tests internal] load metadata for docker.io/library/python:3.12-alpi  2.6s
+ => [client2 internal] load metadata for docker.io/library/python:3.12-sl  2.5s
+ => [server internal] load .dockerignore                                   0.0s
+ => => transferring context: 2B                                            0.0s
+ => [tests internal] load .dockerignore                                    0.0s
+ => => transferring context: 2B                                            0.0s
+ => [tests internal] load build context                                    0.1s
+ => => transferring context: 10.02kB                                       0.1s
+ => [tests 1/7] FROM docker.io/library/python:3.12-alpine@sha256:2c36f9de  4.0s
+ => => resolve docker.io/library/python:3.12-alpine@sha256:2c36f9de70d614  0.0s
+ => => sha256:c13a206352419c052924802b0003c04bf69460821f3 5.44kB / 5.44kB  0.0s
+ => => sha256:1074353eec0db2c1d81d5af2671e56e00cf5738486f 3.86MB / 3.86MB  2.1s
+ => => sha256:9e47427452791717fcda9c9ec0b4604ab248f09 460.94kB / 460.94kB  0.9s
+ => => sha256:522560f13f9b6e5e1b90169cfa788974874e2ec5c 13.74MB / 13.74MB  2.1s
+ => => sha256:2c36f9de70d61461464367459649732c6b0b58a66 10.30kB / 10.30kB  0.0s
+ => => sha256:066af511e31978481d7ecc70f982b6129fcbe6bc8f7 1.74kB / 1.74kB  0.0s
+ => => sha256:a4581c766c382acb3694f44b681cd46ad09be1dc1be0557 250B / 250B  1.0s
+ => => extracting sha256:1074353eec0db2c1d81d5af2671e56e00cf5738486f57626  0.2s
+ => => extracting sha256:9e47427452791717fcda9c9ec0b4604ab248f09e9b4ceaff  0.3s
+ => => extracting sha256:522560f13f9b6e5e1b90169cfa788974874e2ec5c0e9eee9  0.9s
+ => => extracting sha256:a4581c766c382acb3694f44b681cd46ad09be1dc1be05574  0.0s
+ => [server internal] load build context                                   0.1s
+ => => transferring context: 7.75kB                                        0.1s
+ => [client2 1/6] FROM docker.io/library/python:3.12-slim@sha256:fa48eefe  5.7s
+ => => resolve docker.io/library/python:3.12-slim@sha256:fa48eefe2146644c  0.0s
+ => => sha256:fa48eefe2146644c2308b909d6bb7651a768178f8 10.37kB / 10.37kB  0.0s
+ => => sha256:fdab368dc2e04fab3180d04508b41732756cc442586 1.75kB / 1.75kB  0.0s
+ => => sha256:bf1953a9427f362f6753f08511ebe962108faf79858 5.68kB / 5.68kB  0.0s
+ => => sha256:1733a4cd59540b3470ff7a90963bcdea5b543279d 29.78MB / 29.78MB  3.3s
+ => => sha256:dfff024aded812f05863f68d31b04030038e0101732 1.29MB / 1.29MB  2.5s
+ => => sha256:89933f78055059f29cf8b5a9c0b6df0fe9d96c388 12.11MB / 12.11MB  3.1s
+ => => sha256:1f384a3df5003cc3a739008d6e3c2b2afc752887e9ce097 250B / 250B  2.7s
+ => => extracting sha256:1733a4cd59540b3470ff7a90963bcdea5b543279dd6bdaf0  1.3s
+ => => extracting sha256:dfff024aded812f05863f68d31b04030038e01017329961e  0.1s
+ => => extracting sha256:89933f78055059f29cf8b5a9c0b6df0fe9d96c388b992158  0.7s
+ => => extracting sha256:1f384a3df5003cc3a739008d6e3c2b2afc752887e9ce0975  0.0s
+ => [tests 2/7] COPY tests/requirements.txt .                              0.1s
+ => [tests 3/7] RUN pip install -r requirements.txt                        5.7s
+ => [client1 2/6] WORKDIR /grpc-messenger                                  0.1s
+ => [server 3/6] COPY client/requirements.txt .                            0.0s
+ => [server 4/6] RUN pip install --no-cache-dir -r requirements.txt        5.5s
+ => [tests 4/7] RUN apk add curl                                           1.6s
+ => [tests 5/7] RUN curl -sSL "https://github.com/fullstorydev/grpcurl/re  1.2s
+ => [server 5/6] COPY . messenger                                          0.0s
+ => [server 6/6] RUN python -m grpc_tools.protoc -I. --python_out=. --pyi  0.5s
+ => [client1] exporting to image                                           0.4s
+ => => exporting layers                                                    0.3s
+ => => writing image sha256:82b8af8c730eb7336d7b2689f997ec26b44896562dbe8  0.0s
+ => => naming to docker.io/library/grpc-solution-client                    0.0s
+ => [client2] exporting to image                                           0.4s
+ => => exporting layers                                                    0.3s
+ => => writing image sha256:b09df5696930347e575f427fadbeb48625eea377277cf  0.0s
+ => => naming to docker.io/library/grpc-solution-client                    0.0s
+ => [server] exporting to image                                            0.4s
+ => => exporting layers                                                    0.3s
+ => => writing image sha256:5a206744e48fab4ee869b08e57ee5ba6cf90b33ad2530  0.0s
+ => => naming to docker.io/library/grpc-solution-server                    0.0s
+ => [client1] resolving provenance for metadata file                       0.0s
+ => [server] resolving provenance for metadata file                        0.0s
+ => [client2] resolving provenance for metadata file                       0.0s
+ => [tests 6/7] COPY messenger/proto/messenger.proto messenger/proto/mess  0.0s
+ => [tests 7/7] COPY tests/*.py tests/                                     0.0s
+ => [tests] exporting to image                                             0.3s
+ => => exporting layers                                                    0.3s
+ => => writing image sha256:08573a256c0c86e0df1316ad3c8a4120e6d3229b059da  0.0s
+ => => naming to docker.io/library/grpc-solution-tests                     0.0s
+ => [tests] resolving provenance for metadata file                         0.0s
+[+] build 3/3
+ ✔ Image grpc-solution-client Built 15.9s
+
+=== START SERVER AND CLIENTS ===============================================================================================
+[+] up 4/4
+=== RUN TESTS ==============================================================================================================
+ Container hw-client2-1 Running d 0.0s
+ Container hw-client1-1 Running d 0.0s
+ Container hw-server-1 Running
+ Container hw-tests-run-d86cee687717 Creating
+ Container hw-tests-run-d86cee687717 Created
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 4 items
+
+tests/test_server.py::test_send_smoke PASSED
+tests/test_server.py::test_send_returns_ascending_time PASSED
+tests/test_server.py::test_get_messages_smoke PASSED
+tests/test_server.py::test_get_only_sends_new PASSED
+
+============================== 4 passed in 0.94s ===============================
+
+============================= test session starts ==============================
+platform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 3 items
+
+tests/test_client.py::test_single_client_single_message PASSED
+tests/test_client.py::test_single_client_multiple_messages PASSED
+tests/test_client.py::test_two_clients_multiple_messages PASSED
+
+============================== 3 passed in 0.44s ===============================
+
+SCORE: 10
+
+=== PRINT LOGS =============================================================================================================
+client1-1  | 2025-12-18T17:18:44.037956226Z 172.19.0.5 - - [18/Dec/2025 17:18:44] code 501, message Unsupported method ('GET')
+client1-1  | 2025-12-18T17:18:44.037994921Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "GET / HTTP/1.1" 501 -
+client1-1  | 2025-12-18T17:18:44.040991488Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.044285197Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.150126006Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.154540441Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.160361774Z 172.19.0.5 - - [18/Dec/2025 17:18:44] code 501, message Unsupported method ('GET')
+client1-1  | 2025-12-18T17:18:44.160383819Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "GET / HTTP/1.1" 501 -
+client1-1  | 2025-12-18T17:18:44.162124677Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.165936774Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.169267127Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.275085852Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.279876228Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.283056500Z 172.19.0.5 - - [18/Dec/2025 17:18:44] code 501, message Unsupported method ('GET')
+client1-1  | 2025-12-18T17:18:44.283072781Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "GET / HTTP/1.1" 501 -
+client1-1  | 2025-12-18T17:18:44.284953120Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client2-1  | 2025-12-18T17:18:44.287010171Z 172.19.0.5 - - [18/Dec/2025 17:18:44] code 501, message Unsupported method ('GET')
+client2-1  | 2025-12-18T17:18:44.287038903Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "GET / HTTP/1.1" 501 -
+client2-1  | 2025-12-18T17:18:44.289095309Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.292079404Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.294744177Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client2-1  | 2025-12-18T17:18:44.297615133Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client2-1  | 2025-12-18T17:18:44.299996264Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /sendMessage HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.404230397Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client2-1  | 2025-12-18T17:18:44.407250421Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client2-1  | 2025-12-18T17:18:44.410361443Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+client1-1  | 2025-12-18T17:18:44.412695291Z 172.19.0.5 - - [18/Dec/2025 17:18:44] "POST /getAndFlushMessages HTTP/1.1" 200 -
+
+=== SHUT DOWN ==============================================================================================================
+[+] down 3/4
+=== VERDICT ================================================================================================================
+SCORE: 10ner hw-client2-1 Removed 10.4s
+ ⠙ Network hw_default     Removing 0.1s
