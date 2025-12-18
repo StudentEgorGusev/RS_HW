@@ -1,0 +1,4 @@
+solution-dir: solution
+tests:
+  command: docker run --pull always --rm -t -v ./solution:/solution ghcr.io/distsys-course/guarantees:latest
+  full-options: -m 100 -c -o
