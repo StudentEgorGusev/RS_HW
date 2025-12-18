@@ -1,0 +1,2 @@
+{{- /*gotype: hw3test.RunOpts */ -}}
+docker run --memory=128m --memory-swap=128m --memory-swappiness=0 --rm {{.DockerVolumeArgs}} {{.DockerPortArgs}} {{.DockerEnvArgs}} hw3img {{.DockerCommandLineArgs}}
